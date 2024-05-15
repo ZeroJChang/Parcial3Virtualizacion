@@ -1,0 +1,23 @@
+<!-- index.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de Endpoint</title>
+</head>
+<body>
+    <h1>Consumo de Endpoint</h1>
+    <button id="fetchData">Obtener Datos</button>
+    <p id="data"></p>
+
+    <script>
+        document.getElementById('fetchData').addEventListener('click', async () => {
+            const response = await fetch('http://localhost:3000/info');
+            const data = await response.json();
+            document.getElementById('data').innerText = `Nombre: ${data.nombre}, Hora: ${data.hora}, HolaMUND!!!: ${data.hello} `;
+        });
+    </script>
+</body>
+</html>
